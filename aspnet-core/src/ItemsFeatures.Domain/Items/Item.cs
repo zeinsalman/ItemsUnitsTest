@@ -1,7 +1,9 @@
 ﻿using ItemsFeatures.Categories;
 using ItemsFeatures.CategoriesItems;
+using ItemsFeatures.Units;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,9 +17,11 @@ namespace ItemsFeatures.Items
         public string Name { get; set; }
 
         public Guid UnitId { get; set; }
-        public Guid? TenantId { get; set; }
+        public Guid? TenantId { get;    set; }
 
-        public ICollection<CategoryItem> CategoriesItems { get; set; }
+       // public Unit Unit { get; set; }
+
+        public ICollection<CategoryItem>  CategoriesItems { get; set; }
 
         public Item()
         {

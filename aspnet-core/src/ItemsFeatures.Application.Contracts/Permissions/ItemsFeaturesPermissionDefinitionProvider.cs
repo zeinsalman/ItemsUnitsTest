@@ -12,6 +12,22 @@ namespace ItemsFeatures.Permissions
 
             //Define your own permissions here. Example:
             //myGroup.AddPermission(ItemsFeaturesPermissions.MyPermission1, L("Permission:MyPermission1"));
+
+            var itemsPermission = myGroup.AddPermission(ItemsFeaturesPermissions.Item.Default, L("Permission:Items"));
+            itemsPermission.AddChild(ItemsFeaturesPermissions.Item.Create, L("Permission:Items.Create"));
+            itemsPermission.AddChild(ItemsFeaturesPermissions.Item.Edit, L("Permission:Items.Edit"));
+            itemsPermission.AddChild(ItemsFeaturesPermissions.Item.Delete, L("Permission:Items.Delete"));
+
+
+            var categoriesPermission = myGroup.AddPermission(ItemsFeaturesPermissions.Category.Default, L("Permission:Categories"));
+            categoriesPermission.AddChild(ItemsFeaturesPermissions.Category.Create, L("Permission:Categories.Create"));
+            categoriesPermission.AddChild(ItemsFeaturesPermissions.Category.Edit, L("Permission:Categories.Edit"));
+            categoriesPermission.AddChild(ItemsFeaturesPermissions.Category.Delete, L("Permission:Categories.Delete"));
+
+            var unitsPermission = myGroup.AddPermission(ItemsFeaturesPermissions.Unit.Default, L("Permission:Units"));
+            unitsPermission.AddChild(ItemsFeaturesPermissions.Unit.Create, L("Permission:Units.Create"));
+            unitsPermission.AddChild(ItemsFeaturesPermissions.Unit.Edit, L("Permission:Units.Edit"));
+            unitsPermission.AddChild(ItemsFeaturesPermissions.Unit.Delete, L("Permission:Units.Delete"));
         }
 
         private static LocalizableString L(string name)

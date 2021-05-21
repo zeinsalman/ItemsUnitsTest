@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using ItemsFeatures.Categories;
+using ItemsFeatures.CategoriesItems;
+using ItemsFeatures.Items;
 using ItemsFeatures.Units;
 
 namespace ItemsFeatures
@@ -16,6 +18,14 @@ namespace ItemsFeatures
 
             CreateMap <Category, CategoryDto>();
             CreateMap<Category, CreateUpdateCategoryDto>();
+
+            CreateMap<Item, ItemDto>();
+                  //.ForMember(x => x.UnitName, map => map.MapFrom(y=> y.Unit != null ? y.Unit.Name : null));
+
+            CreateMap<Item, GetItemListDto>();
+
+            CreateMap<CategoryItem, CategoryItemDto>();
+            CreateMap<CategoryItem, CreateUpdateCategoryItemDto>();
 
         }
     }

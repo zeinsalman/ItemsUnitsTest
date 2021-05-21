@@ -3,6 +3,24 @@
   "texts": {
     "Menu:Home": "Home",
     "Welcome": "Welcome",
-    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io."
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+
+    "Permission:Items": "Items Management",
+    "Permission:Items.Create": "Creating new Items",
+    "Permission:Items.Edit": "Editing the Items",
+    "Permission:Items.Delete": "Deleting the Items",
+
+
+    "Permission:Categories": "Categories Management",
+    "Permission:Categories.Create": "Creating new Categories",
+    "Permission:Categories.Edit": "Editing the Categories",
+    "Permission:Categories.Delete": "Deleting the Categories",
+
+
+    "Permission:Units": "Units Management",
+    "Permission:Books.Create": "Creating new Units",
+    "Permission:Books.Edit": "Editing the Units",
+    "Permission:Books.Delete": "Deleting the Units"
+
   }
 }

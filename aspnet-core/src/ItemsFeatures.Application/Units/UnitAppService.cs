@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ItemsFeatures.Permissions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,16 +11,24 @@ using Volo.Abp.Domain.Repositories;
 namespace ItemsFeatures.Units
 {
     public class UnitAppService :
-             CrudAppService<
-            Unit, //The Book entity
-            UnitDto, //Used to show books
-            Guid, //Primary key of the book entity
-            PagedAndSortedResultRequestDto, //Used for paging/sorting
-            CreatreOrUpdateUnitDto>, //Used to create/update a book
-        IUnitAppService //implement the IBookAppService
+            CrudAppService<
+            Unit, 
+            UnitDto, 
+            Guid, 
+            PagedAndSortedResultRequestDto, 
+            CreatreOrUpdateUnitDto>, 
+        IUnitAppService 
     {
         public UnitAppService(IRepository<Unit, Guid> repository) : base(repository)
         {
+            /*   
+            GetPolicyName = ItemsFeaturesPermissions.Unit.Default;
+            GetListPolicyName = ItemsFeaturesPermissions.Unit.Default;
+            CreatePolicyName = ItemsFeaturesPermissions.Unit.Create;
+            UpdatePolicyName = ItemsFeaturesPermissions.Unit.Edit;
+            DeletePolicyName = ItemsFeaturesPermissions.Unit.Delete;
+            */
+            
         }
     }
 }

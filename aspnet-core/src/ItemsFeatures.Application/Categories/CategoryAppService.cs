@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ItemsFeatures.Permissions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,14 @@ namespace ItemsFeatures.Categories
     {
         public CategoryAppService(IRepository<Category, Guid> repository) : base(repository)
         {
+            /*   
+            GetPolicyName = ItemsFeaturesPermissions.Category.Default;
+            GetListPolicyName = ItemsFeaturesPermissions.Category.Default;
+            CreatePolicyName = ItemsFeaturesPermissions.Category.Create;
+            UpdatePolicyName = ItemsFeaturesPermissions.Category.Edit;
+            DeletePolicyName = ItemsFeaturesPermissions.Category.Delete;
+            */
+            
         }
     }
 }
