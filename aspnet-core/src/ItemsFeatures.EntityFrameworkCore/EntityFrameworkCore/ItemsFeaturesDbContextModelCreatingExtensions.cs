@@ -52,7 +52,7 @@ namespace ItemsFeatures.EntityFrameworkCore
                 .WithOne(j => j.Item)
                 .HasForeignKey(j => j.ItemId);
 
-                b.HasOne<Unit>().WithMany().HasForeignKey(x => x.UnitId).IsRequired();
+                b.HasOne<Unit>(x=>x.Unit).WithMany(x=>x.Items).HasForeignKey(x => x.UnitId).IsRequired();
 
             });
 

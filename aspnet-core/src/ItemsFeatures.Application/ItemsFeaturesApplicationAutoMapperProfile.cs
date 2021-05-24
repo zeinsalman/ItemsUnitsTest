@@ -14,18 +14,24 @@ namespace ItemsFeatures
              * Alternatively, you can split your mapping configurations
              * into multiple profile classes for a better organization. */
             CreateMap<Unit, UnitDto>();
-            CreateMap<Unit, CreatreOrUpdateUnitDto>();
-
+            CreateMap< CreatreOrUpdateUnitDto , Unit>();
+                
             CreateMap <Category, CategoryDto>();
-            CreateMap<Category, CreateUpdateCategoryDto>();
+            CreateMap<CreateUpdateCategoryDto ,Category>();
 
-            CreateMap<Item, ItemDto>();
-                  //.ForMember(x => x.UnitName, map => map.MapFrom(y=> y.Unit != null ? y.Unit.Name : null));
+            CreateMap<Item, ItemDto>()
+                  .ForMember(x => x.UnitName, map => map.MapFrom(y=> y.Unit != null ? y.Unit.Name : null))
+                  .ForMember(x => x.ItemCategories, map => map.MapFrom(y => y.CategoriesItems != null ? y.CategoriesItems : null))
+                  //.ForMember(x => x.UnitName, map => map.MapFrom(y => y.Unit != null ? y.Unit.Name : null))
+                  ;
 
             CreateMap<Item, GetItemListDto>();
 
-            CreateMap<CategoryItem, CategoryItemDto>();
-            CreateMap<CategoryItem, CreateUpdateCategoryItemDto>();
+            CreateMap<CategoryItem, CategoryItemDto>()
+                .ForMember(x => x.CategoryName, map => map.MapFrom(y => y.Category != null ? y.Category.Name : null))
+                .ForMember(x => x.ItemName, map => map.MapFrom(y => y.Item != null ? y.Item.Name : null))
+                  ;
+            CreateMap<CreateUpdateCategoryItemDto ,CategoryItem>();
 
         }
     }

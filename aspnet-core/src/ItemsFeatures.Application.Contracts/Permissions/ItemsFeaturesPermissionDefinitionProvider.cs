@@ -28,6 +28,11 @@ namespace ItemsFeatures.Permissions
             unitsPermission.AddChild(ItemsFeaturesPermissions.Unit.Create, L("Permission:Units.Create"));
             unitsPermission.AddChild(ItemsFeaturesPermissions.Unit.Edit, L("Permission:Units.Edit"));
             unitsPermission.AddChild(ItemsFeaturesPermissions.Unit.Delete, L("Permission:Units.Delete"));
+
+            var categoryItemsPermission = myGroup.AddPermission(ItemsFeaturesPermissions.CategoryItem.Default, L("Permission:CategoryItems"));
+            categoryItemsPermission.AddChild(ItemsFeaturesPermissions.CategoryItem.Create, L("Permission:CategoryItems.Create"));
+            categoryItemsPermission.AddChild(ItemsFeaturesPermissions.CategoryItem.Edit, L("Permission:CategoryItems.Edit"));
+            categoryItemsPermission.AddChild(ItemsFeaturesPermissions.CategoryItem.Delete, L("Permission:CategoryItems.Delete"));
         }
 
         private static LocalizableString L(string name)

@@ -30,5 +30,13 @@
             public const string Edit = Default + ".Edit";
             public const string Delete = Default + ".Delete";
         }
+
+        public static class CategoryItem
+        {
+            public const string Default = GroupName + ".CategoriesItems";
+            public const string Create = Default + ".Create";
+            public const string Edit = Default + ".Edit";
+            public const string Delete = Default + ".Delete";
+        }
     }
 }

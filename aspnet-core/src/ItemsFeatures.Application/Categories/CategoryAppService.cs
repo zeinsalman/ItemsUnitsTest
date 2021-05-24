@@ -21,13 +21,13 @@ namespace ItemsFeatures.Categories
     {
         public CategoryAppService(IRepository<Category, Guid> repository) : base(repository)
         {
-            /*   
+               
             GetPolicyName = ItemsFeaturesPermissions.Category.Default;
             GetListPolicyName = ItemsFeaturesPermissions.Category.Default;
             CreatePolicyName = ItemsFeaturesPermissions.Category.Create;
             UpdatePolicyName = ItemsFeaturesPermissions.Category.Edit;
             DeletePolicyName = ItemsFeaturesPermissions.Category.Delete;
-            */
+            
             
         }
     }

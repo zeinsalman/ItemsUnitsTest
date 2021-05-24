@@ -19,7 +19,7 @@ namespace ItemsFeatures.Items
         public Guid UnitId { get; set; }
         public Guid? TenantId { get;    set; }
 
-       // public Unit Unit { get; set; }
+        public Unit Unit { get; set; }
 
         public ICollection<CategoryItem>  CategoriesItems { get; set; }
 

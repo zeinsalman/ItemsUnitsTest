@@ -21,13 +21,13 @@ namespace ItemsFeatures.Units
     {
         public UnitAppService(IRepository<Unit, Guid> repository) : base(repository)
         {
-            /*   
+               
             GetPolicyName = ItemsFeaturesPermissions.Unit.Default;
             GetListPolicyName = ItemsFeaturesPermissions.Unit.Default;
             CreatePolicyName = ItemsFeaturesPermissions.Unit.Create;
             UpdatePolicyName = ItemsFeaturesPermissions.Unit.Edit;
             DeletePolicyName = ItemsFeaturesPermissions.Unit.Delete;
-            */
+            
             
         }
     }

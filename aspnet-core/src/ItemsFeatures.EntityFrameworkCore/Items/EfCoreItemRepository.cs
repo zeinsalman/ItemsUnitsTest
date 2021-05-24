@@ -62,27 +62,14 @@ namespace ItemsFeatures.Items
                     using (_dataFilter.Disable<IMultiTenant>())
                     {
                         DbSet<Item> dbSet = await GetDbSetAsync();
-                        /*
+                     
                         return await dbSet
                            .WhereIf(
                                !filter.IsNullOrWhiteSpace(),
                                item => item.Name.Contains(filter)
                             )
-                           //.Include(x => x.Unit)
-                           .OrderBy(sorting)
-                           .Skip(skipCount)
-                           .Take(maxResultCount)
-                           .AsQueryable()
-                           
-                        
-                       
-                        */
-                        return await dbSet
-                           .WhereIf(
-                               !filter.IsNullOrWhiteSpace(),
-                               item => item.Name.Contains(filter)
-                            )
-                           
+                           .Include(x=>x.Unit)
+                           .Include(x=>x.CategoriesItems).ThenInclude(x=>x.Category)
                            .OrderBy(sorting)
                            .Skip(skipCount)
                            .Take(maxResultCount)
@@ -92,22 +79,7 @@ namespace ItemsFeatures.Items
                 else
                 {
                     DbSet<Item> dbSet = await GetDbSetAsync();
-                    /*
-                    return await dbSet
-                           .WhereIf(
-                               !filter.IsNullOrWhiteSpace(),
-                               item => item.Name.Contains(filter)
-                            )
-                           //.Include(x => x.Unit)
-                           .OrderBy(sorting)
-                           .Skip(skipCount)
-                           .Take(maxResultCount)
-                           .AsQueryable()
-                           
-                    
-                  
-
-                    */
+                   
 
                     return await dbSet
                            .WhereIf(
@@ -115,6 +87,8 @@ namespace ItemsFeatures.Items
                                item => item.Name.Contains(filter)
                             )
                            .OrderBy(sorting)
+                           .Include(x => x.CategoriesItems).ThenInclude(x => x.Category)
+
                            .Skip(skipCount)
                            .Take(maxResultCount)
                            .ToListAsync();
@@ -130,11 +104,19 @@ namespace ItemsFeatures.Items
 
         }
 
-        public async Task<Item> UpdateAsync(Guid itemId, Guid unitId, Guid? tenantId, string name)
+        public async Task<Item> UpdateAsync(Guid itemId, Guid ? unitId, Guid? tenantId, string name)
         {
             var item = await GetAsync(itemId);
-            item.UnitId = unitId;
-            item.TenantId = tenantId;
+            if (unitId.HasValue)
+            {
+                item.UnitId = Guid.Parse(unitId.ToString());
+
+            }
+            if (tenantId.HasValue)
+            {
+                item.TenantId = tenantId;
+
+            }
             item.Name = name;
             item = await UpdateAsync(item, true);
             return item;

@@ -28,6 +28,7 @@ using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
 using Volo.Abp.UI.Navigation.Urls;
 using Volo.Abp.VirtualFileSystem;
+//using Volo.Abp.Caching.StackExchangeRedis;
 
 namespace ItemsFeatures
 {
@@ -43,6 +44,7 @@ namespace ItemsFeatures
         typeof(AbpAspNetCoreSerilogModule),
         typeof(AbpSwashbuckleModule)
     )]
+    //[DependsOn(typeof(AbpCachingStackExchangeRedisModule))]
     public class ItemsFeaturesHttpApiHostModule : AbpModule
     {
         private const string DefaultCorsPolicyName = "Default";
